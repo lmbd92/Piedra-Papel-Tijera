@@ -1,6 +1,6 @@
 # Juego Básico Piedra Papel y Tijera
 
-[enlace en línea](https://lmbd92.github.io/Piedra-Papel-Tijera/)
+[Enlace al juego](https://lmbd92.github.io/Piedra-Papel-Tijera/)
 
 En este repo encontrarás la estructura y logica básica del juego.
 
