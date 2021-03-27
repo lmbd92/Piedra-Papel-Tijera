@@ -14,6 +14,8 @@ let puntajeComputadora = document.querySelector(".puntaje-computadora p");
 
 let labelResultado = document.querySelector(".resultado");
 
+let tablero = document.querySelector(".tablero");
+
 let eleccionUsuario = "";
 let eleccionCompu = "";
 
@@ -42,15 +44,15 @@ const eleccionComputadora = () => {
 const resultado = () => {
   if (eleccionUsuario == "piedra") {
     if (eleccionCompu == "piedra") {
-      labelResultado.textContent = "Empate!!";
+      labelResultado.textContent = "Empate!! 😐";
     }
     if (eleccionCompu == "papel") {
-      labelResultado.textContent = "Perdiste!! :'(";
+      labelResultado.textContent = "Perdiste!! 😥";
       contCompu++;
       puntajeComputadora.textContent = contCompu;
     }
     if (eleccionCompu == "tijera") {
-      labelResultado.textContent = "Ganasteee!! :D";
+      labelResultado.textContent = "Ganasteee!! 🤩";
       contUsuario++;
       puntajeUsuario.textContent = contUsuario;
     }
@@ -58,15 +60,15 @@ const resultado = () => {
 
   if (eleccionUsuario == "papel") {
     if (eleccionCompu == "piedra") {
-      labelResultado.textContent = "Ganasteee!!";
+      labelResultado.textContent = "Ganasteee!! 🤩";
       contUsuario++;
       puntajeUsuario.textContent = contUsuario;
     }
     if (eleccionCompu == "papel") {
-      labelResultado.textContent = "Empate!! :'(";
+      labelResultado.textContent = "Empate!! 😐";
     }
     if (eleccionCompu == "tijera") {
-      labelResultado.textContent = "Perdiste!! :D";
+      labelResultado.textContent = "Perdiste!! 😥";
       contCompu++;
       puntajeComputadora.textContent = contCompu;
     }
@@ -74,39 +76,60 @@ const resultado = () => {
 
   if (eleccionUsuario == "tijera") {
     if (eleccionCompu == "piedra") {
-      labelResultado.textContent = "Perdiste!!";
+      labelResultado.textContent = "Perdiste!! 😥";
       contCompu++;
       puntajeComputadora.textContent = contCompu;
     }
     if (eleccionCompu == "papel") {
-      labelResultado.textContent = "Ganasteee!! :'(";
+      labelResultado.textContent = "Ganasteee!! 🤩";
       contUsuario++;
       puntajeUsuario.textContent = contUsuario;
     }
     if (eleccionCompu == "tijera") {
-      labelResultado.textContent = "Empate!! :D";
+      labelResultado.textContent = "Empate!! 😐";
     }
   }
 };
 
 // esta función se ejecuta automaticamente, es decir, no tengo que invocarla en otro punto del código
 botonPiedra.onclick = () => {
-  eleccionUsuario = "piedra";
   manoUsuario.src = "./assets/piedra_ada.png";
-  eleccionComputadora();
-  resultado();
+  manoCompu.src = "./assets/piedra_computadora.png";
+  labelResultado.textContent="...";
+  tablero.classList.add("jugando");
+  setTimeout(() => {
+    eleccionUsuario = "piedra";
+    manoUsuario.src = "./assets/piedra_ada.png";
+    eleccionComputadora();
+    resultado();
+    tablero.classList.remove("jugando");
+  }, 2000);
 };
 
 botonPapel.onclick = () => {
-  eleccionUsuario = "papel";
-  manoUsuario.src = "./assets/papel_ada.png";
-  eleccionComputadora();
-  resultado();
+  manoUsuario.src = "./assets/piedra_ada.png";
+  manoCompu.src = "./assets/piedra_computadora.png";
+  labelResultado.textContent="...";
+  tablero.classList.add("jugando");
+  setTimeout(() => {
+    eleccionUsuario = "papel";
+    manoUsuario.src = "./assets/papel_ada.png";
+    eleccionComputadora();
+    resultado();
+    tablero.classList.remove("jugando");
+  }, 2000);
 };
 
 botonTijera.onclick = () => {
-  eleccionUsuario = "tijera";
-  manoUsuario.src = "./assets/tijera_ada.png";
-  eleccionComputadora();
-  resultado();
+  manoUsuario.src = "./assets/piedra_ada.png";
+  manoCompu.src = "./assets/piedra_computadora.png";
+  labelResultado.textContent="...";
+  tablero.classList.add("jugando");
+  setTimeout(() => {
+    eleccionUsuario = "tijera";
+    manoUsuario.src = "./assets/tijera_ada.png";
+    eleccionComputadora();
+    resultado();
+    tablero.classList.remove("jugando");
+  }, 2000);
 };
