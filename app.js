@@ -25,6 +25,15 @@ let contCompu = 0;
 /*---------------------
       Alerts
 -----------------------*/
+
+const swalInicio = () => {
+  Swal.fire(
+    '¿Jugamos?',
+    'Gana el primero que alcance 3 puntos',
+    'question'
+  )
+}
+swalInicio();
 const swalPerdedor = () => {
   Swal.fire({
     icon: 'error',
