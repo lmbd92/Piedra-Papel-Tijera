@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="./style.css?v=1" />
     <title>Juego | Piedra, papel o tijera</title>
   </head>
@@ -12,7 +13,7 @@
     <section class="principal">
       <div class="puntajes">
         <div class="puntaje-usuaria">
-          <h2>Ada</h2>
+          <h2>Usuario</h2>
           <p>0</p>
         </div>
 
@@ -23,8 +24,7 @@
       </div>
 
       <div class="tablero">
-        <h2 class="resultado">Elegí una opción</h2>
-
+        
         <div class="manos">
           <img
             class="mano-usuaria"
@@ -37,6 +37,7 @@
             alt="Opción elegida por computadora"
           />
         </div>
+        <h2 class="resultado">Seleccione una opción</h2>
 
         <div class="opciones">
           <button class="piedra">
@@ -64,21 +65,8 @@
       </div>
 
       <footer class="centrado">
-        <small
-          >Hecho con ❤️ y mucho ☕️ |
-          <div>
-            Íconos por
-            <a
-              href="https://www.flaticon.com/authors/darius-dan"
-              title="Darius Dan"
-              >Darius Dan</a
-            >
-            de
-            <a href="https://www.flaticon.com/" title="Flaticon"
-              >flaticon.com</a
-            >
-          </div></small
-        >
+        <small>Hecho con ❤️ y mucho ☕️ 
+          </small>
       </footer>
 
       <img src="./assets/piedra_computadora.png" width="1px" />

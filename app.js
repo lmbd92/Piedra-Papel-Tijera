@@ -22,6 +22,51 @@ let eleccionCompu = "";
 let contUsuario = 0;
 let contCompu = 0;
 
+/*---------------------
+      Alerts
+-----------------------*/
+const swalPerdedor = () => {
+  Swal.fire({
+    icon: 'error',
+    title: 'Oops...',
+    text: 'Sigue intentado',
+    allowOutsideClick: false
+  })
+}
+
+const swalGanador= () => {
+  Swal.fire({
+    icon: 'success',
+    title: 'Bienvenido a CódigoC13...',
+    text: 'Iniciemos esta historia',
+    confirmButtonText: 'Cool',
+    allowOutsideClick: false
+  })
+}
+
+const limpiarMarcadores = () => {
+  contUsuario = 0;
+  contCompu = 0;
+  puntajeUsuario.textContent = contUsuario;
+  puntajeComputadora.textContent = contCompu;
+}
+
+
+
+const ganador = (puntajeUser, puntajeMaquina) => {
+  console.log("Usuario: "+puntajeUser, " maquina: "+puntajeMaquina);
+  if(puntajeUser >= 3 && puntajeUser > puntajeMaquina){
+    console.log("Usuario Ganador");
+    swalGanador();
+    setTimeout(limpiarMarcadores, 3000);
+  }else if(puntajeMaquina >= 3 && puntajeUser< puntajeMaquina){
+    console.log("Maquina Ganador");
+    swalPerdedor();
+    setTimeout(limpiarMarcadores, 3000);
+  }
+
+}
+
 // esta función no se ejecuta automaticamente, es decir, tengo que invocarla en otro punto del código
 const eleccionComputadora = () => {
   let opcionAlAzar = Math.floor(Math.random() * 3);
@@ -41,6 +86,7 @@ const eleccionComputadora = () => {
   }
 };
 
+
 const resultado = () => {
   if (eleccionUsuario == "piedra") {
     if (eleccionCompu == "piedra") {
@@ -50,11 +96,13 @@ const resultado = () => {
       labelResultado.textContent = "Perdiste!! 😥";
       contCompu++;
       puntajeComputadora.textContent = contCompu;
+      ganador(contUsuario, contCompu);
     }
     if (eleccionCompu == "tijera") {
       labelResultado.textContent = "Ganasteee!! 🤩";
       contUsuario++;
       puntajeUsuario.textContent = contUsuario;
+      ganador(contUsuario, contCompu);
     }
   }
 
@@ -63,6 +111,7 @@ const resultado = () => {
       labelResultado.textContent = "Ganasteee!! 🤩";
       contUsuario++;
       puntajeUsuario.textContent = contUsuario;
+      ganador(contUsuario, contCompu);
     }
     if (eleccionCompu == "papel") {
       labelResultado.textContent = "Empate!! 😐";
@@ -71,6 +120,7 @@ const resultado = () => {
       labelResultado.textContent = "Perdiste!! 😥";
       contCompu++;
       puntajeComputadora.textContent = contCompu;
+      ganador(contUsuario, contCompu);
     }
   }
 
@@ -79,11 +129,13 @@ const resultado = () => {
       labelResultado.textContent = "Perdiste!! 😥";
       contCompu++;
       puntajeComputadora.textContent = contCompu;
+      ganador(contUsuario, contCompu);
     }
     if (eleccionCompu == "papel") {
       labelResultado.textContent = "Ganasteee!! 🤩";
       contUsuario++;
       puntajeUsuario.textContent = contUsuario;
+      ganador(contUsuario, contCompu);
     }
     if (eleccionCompu == "tijera") {
       labelResultado.textContent = "Empate!! 😐";
